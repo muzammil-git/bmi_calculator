@@ -16,20 +16,21 @@ class _first_viewState extends State<first_view> {
   int weight = 0;
   int age = 1;
 
-  Color widgetColor = Colors.orange;
-
+  Color widgetColor = Color(0xFF2c2739);
+  Color backColor = Color(0xFF0F0026);
+  TextStyle textStyle = TextStyle(fontSize: 15,fontWeight: FontWeight.bold, letterSpacing: 1,color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI Calculator'),
-        backgroundColor: Colors.grey,
+        backgroundColor: Color(0xFF2c2739),
       ),
 
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.yellow,
+        color: backColor,
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -60,12 +61,12 @@ class _first_viewState extends State<first_view> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Select Height'),
+                          Text('Select Height',style: textStyle),
 
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children:[
-                              Text('${_sliderValue.toStringAsFixed(0)} cm'),
+                              Text('${_sliderValue.toStringAsFixed(0)} cm',style: textStyle,),
                             ]
                           ),
 
@@ -76,7 +77,7 @@ class _first_viewState extends State<first_view> {
                                   value: _sliderValue,
                                   min: 0,
                                   max:240,
-                                  inactiveColor: Colors.black,
+                                  inactiveColor: Colors.grey,
                                   divisions: 240,
                                   onChanged: (newValue){
                                     setState(() {
@@ -110,8 +111,8 @@ class _first_viewState extends State<first_view> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Weight'),
-                        Text('$weight'),
+                        Text('Weight',style: textStyle),
+                        Text('$weight',style: textStyle),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -157,8 +158,8 @@ class _first_viewState extends State<first_view> {
                     child:  Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Age'),
-                        Text('$age'),
+                        Text('Age',style: textStyle),
+                        Text('$age',style: textStyle),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -201,10 +202,12 @@ class _first_viewState extends State<first_view> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                    primary: Colors.blueGrey,
+                    // onPrimary: Co
                   ),
                     onPressed: (){},
-                    child: Text('Calculate BMI')),
+                    child: Text('Calculate BMI',style: textStyle),),
               )
             ],
           ),

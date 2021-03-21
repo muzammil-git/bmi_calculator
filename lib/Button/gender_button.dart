@@ -17,6 +17,8 @@ class GenderButton extends StatefulWidget {
 class _GenderButtonState extends State<GenderButton> {
   double size = 100;
   int currentPosition = 3;
+  TextStyle textStyle = TextStyle(fontSize: 15,fontWeight: FontWeight.bold, letterSpacing: 1);
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class _GenderButtonState extends State<GenderButton> {
               },
           ),
 
-          Text("${widget.text.data}${widget.position}")
+          Text("${widget.text.data}",style: textStyle,)
         ],
       ),
     );
